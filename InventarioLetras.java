@@ -51,71 +51,192 @@ public class InventarioLetras {
                cantidadTotal++;
             }
         }
-  }
+    }
 
-  public int size() {
-      return cantidadTotal;
-  }
+    public int size() {
+        return cantidadTotal;
+    }
 
-  public boolean isEmpty() {
-      return letrasDistintas == 0;
-  }
+    public boolean isEmpty() {
+        return letrasDistintas == 0;
+    }
 
-  public int get(char letra) {
+    public int get(char letra) {
 
-      letra = Character.toLowerCase(letra);
+        letra = Character.toLowerCase(letra);
 
-      if (!Character.isLetter(letra) || letra < 'a' || letra > 'z') {
+        if (!Character.isLetter(letra) || letra < 'a' || letra > 'z') {
           throw new IllegalArgumentException();
-      }
+        }
 
-      return contador[letra - 'a'];
-  }
+        return contador[letra - 'a'];
+    }
 
-  public void set(char letra, int valor) {
+    public void set(char letra, int valor) {
 
-      letra = Character.toLowerCase(letra);
+        letra = Character.toLowerCase(letra);
 
-      if (!Character.isLetter(letra) || letra < 'a' || letra 'z' || valor < 0) {
-          throw new IllegalArgumentException();
-      }
+        if (!Character.isLetter(letra) || letra < 'a' || letra 'z' || valor < 0) {
+            throw new IllegalArgumentException();
+        }
 
-      int posicion = letra - 'a';
+        int posicion = letra - 'a';
 
-      cantidadTotal -= contador[posicion];
+        cantidadTotal -= contador[posicion];
 
-      if (contador[posicion] > 0) {
-          letrasDistintas--;
-      }
+        if (contador[posicion] > 0) {
+            letrasDistintas--;
+        }
 
-      contador[posicion] = valor;
+        contador[posicion] = valor;
 
-      cantidadTotal += valor;
+        cantidadTotal += valor;
 
-      if (valor > 0) {
-          letrasDistintas++;
-      }
-  }
+        if (valor > 0) {
+            letrasDistintas++;
+        }
+    }
 
-  public String toString() {
+    public String toString() {
 
-      String texto = "[";
+        String texto = "[";
 
-      for (int i = 0; i < contador.length; i++)
+        for (int i = 0; i < contador.length; i++)
 
-          int repeticiones = contador[i];
+            int repeticiones = contador[i];
 
-          while (repeticiones > 0) {
+            while (repeticiones > 0) {
 
-              texto += (char) (i + 'a');
-              repeticiones--;
-          }
-      }
+                texto += (char) (i + 'a');
+                repeticiones--;
+            }
+        }
 
-      texto += "]";
+        texto += "]";
 
-      return texto;
+        return texto;
+    }
+
+    public char encriptarCesar(char letra) {
+
+        letra = Character.toLowerCase(letra);
+
+        if (letra < 'a' || letra > 'z') {
+            return letra;
+        }
+
+        int posicion = letra - 'a';
+        posicion = (posicion + 3 ) % 26; 
+
+        return (char) (posicion + 'a');
+    }
+
+    public char desencriptarCesar(char letra) {
+
+        letra = Character.toLowerCase(letra);
+
+        if (letra < 'a' || letra > 'z') {
+             return letra;
+        }
+  
+        int posicion = letra - 'a'; 
+        posicion = (posicion - 3 + 26) % 26;
+
+        return (char) (posicion + 'a');
+    }
+
+    public String encriptarPalabra(String palabra, int desplazamiento) {
+
+        String palabraNueva = "";
+
+        for (int i = 0; i < palabra.length(); i++ {
+
+            palabraNueva += encriptarCesar(palabra.charAt(i));
+        }
+
+        return palabraNueva;
+    }
+
+    public String desencriptarPalabra(String palabra, int desplazamiento) {
+
+        String palabraNueva = "";
+
+        for (int i = 0; i < palabra.length(); i++) {
+
+            palabraNueva += desencriptarCesar(palabra.CharAt(i));
+        }
+
+        return palabraNueva;
+    }
+
+    public InventarioLetras add(InventarioLetras otro) {
+
+        InventarioLetras resultado = new InventarioLetras("")
+
+        for (int i = 0; i < contador.length; i++) {
+
+            int suma = contador[i] + otro.contador[i];
+
+            resultado.contador[i] = suma;
+            resultado.cantidadTotal += suma;
+
+            if (suma > 0) {
+                resultado.letrasDistintas++;
+            }
+        }
+
+        return resultado;
+    }
+
+    public InventarioLetras amplifies(int n) {
+
+        InventarioLetras resultado = new InventarioLetras("");
+
+        for (int i = 0; i < contador.length; i++) {
+
+            int multi = contador[i] * n;
+
+            resultado.contador[i] = multi;
+            resultado.cantidadTotal += multi;
+
+            if (multi > 0) {
+                resultado.LetrasDistintas++;
+            }
+        }
+
+        return resultado;
+    }
+
+    public InventarioLetras subtract(InventarioLetras otro) {
+
+        InventarioLetras resultados = new InventarioLetras("");
+
+        for (int i = 0; i < contador.length; i++) {
+
+            int resta = contador[i] = resta;
+        
+            if (resta < 0) { 
+             return null;
+            }
+
+            resultado.contador[i] = resta;
+            resultado.cantidadTotal += resta;
+
+            if (resta > 0) {
+                resultado.letrasDistintas++;
+            }
+        }
+
+        return resultado;
+    }
 }
+            
+
+
+
+
+  
+
 
             
 
