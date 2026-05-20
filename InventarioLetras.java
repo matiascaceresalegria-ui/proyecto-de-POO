@@ -72,6 +72,103 @@ public class InventarioLetras {
         return contador[letra - 'a'];
     }
 
+    public void set(char letra, int valor) {
+
+        letra = Character.toLowercase(letra);
+
+        if (!Character.isLetter(letra) || letra < 'a' || letra > 'z' || valor < 0) {
+            throw new illegalArgumentException();
+        }
+
+        int posicion = letra - 'a';
+
+        cantidadTotal -= contador[posicion];
+
+        if (contador[posicion] > 0) {
+            letrasDistintas--; 
+        }
+
+        contador[posicion] = valor;
+
+        cantidadTotal += valor; 
+
+        if (valor > 0) { 
+            letrasDistintas++;
+        }
+    }
+
+    public String toString() {
+
+        String texto = "["
+
+        for (int i = 0; i < contador.length; i++) {
+
+            int repeticiones = contador[i];
+
+            while (repeticiones > 0) {
+
+                texto += (char) (i + 'a');
+                repeticiones--;
+            }
+        }
+
+        texto += "]";
+
+        return texto;
+    }
+
+    public char encriptarCesar(char letra) {
+
+        letra = Character.toLowerCase(letra); 
+
+        if (letra < 'a' || letra > 'z') {
+            return letra; 
+        }
+
+        int posicion = letra - 'a'; 
+        posicion = (posicion + 3) % 26; 
+
+        return (char) (posicion) + 'a'; 
+    }
+
+    public char desencriptarCesar(char letra) {
+
+        letra = Character.toLowerCase(letra); 
+
+        if (letra < 'a' || letra > 'z'); {
+            return letra;
+        }
+
+        int posicion = letra - 'a'); 
+        posicion = (posicion - 3 + 26) % 26;
+
+        return (char) (posicion + 'a');
+    }
+
+    public String encriptarPalabra(String palabra, int desplazamiento) {
+
+        String palabraNueva = "";
+
+        for (int i = 0; i < palabra.length(); i++) {
+
+            palabraNueva += encriptarCesar(palabra.charAt(i));
+        }
+
+        return palabraNueva;
+    }
+
+    public String desencriptarPalabra(String palabra, int desplazamiento) {
+
+        String palabraNueva = "";
+
+        for (int i = 0; i < palabra.length(); i++) {
+
+            palabraNueva += desencriptarCesar(palabra.charAt(i)); 
+        }
+
+        return palabraNueva;
+    }
+
     
             
 
