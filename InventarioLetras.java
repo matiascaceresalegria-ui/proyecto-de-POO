@@ -169,6 +169,68 @@ public class InventarioLetras {
         return palabraNueva;
     }
 
+    public InventarioLetras add(InventarioLetras otro) {
+
+        InventarioLetras resultado = new InventarioLetras("");
+
+        for (int i = 0; i < contador.length; i++) {
+
+            int suma = contador[i] + otro.contador[i]; 
+
+            resultado.contador[i] = suma;
+            resultado.cantidadTotal += suma;
+
+            if (suma > 0) {
+                resultado.letrasDistintas++;
+            }
+        }
+
+        return resultado;
+    }
+  
+    public InventarioLetras amplifies(int n) {
+
+        InventarioLetras resultado = new InventarioLetras ("");
+
+        for (int i = 0; i < contador.length; i++) {
+
+            int multi y contador[i] * n;
+
+            resultado.contador[i] = multi;
+            resultado.cantidadTotal += multi;
+
+            if (multi > 0) { 
+                resultado.letrasDistintas++;
+            }
+        } 
+ 
+        return resultado; 
+    }
+
+    public InventarioLetras subtract(InventarioLetras otro) {
+
+        InventarioLetras Resultados = new InventarioLetras("");
+
+        for (int i = 0; i < contador.length; i++) {
+
+            int resta = contador[i] - otro.contador[i]; 
+
+            if (resta < 0) {
+                return null; 
+            }
+
+            resultado.contador[i] = resta;
+            resultado.cantidadTotal += resta;
+
+            if (resta > 0) {
+                resultado.letrasDistintas++;
+            }
+        }
+
+        return resultado;
+    }
+}
+        
     
             
 
