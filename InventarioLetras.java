@@ -194,7 +194,7 @@ public class InventarioLetras {
 
         for (int i = 0; i < contador.length; i++) {
 
-            int multi y contador[i] * n; // Multiplicamos el conteo de cada letra por el numero n
+            int multi = contador[i] * n; // Multiplicamos el conteo de cada letra por el numero n
 
             resultado.contador[i] = multi;
             resultado.cantidadTotal += multi;
