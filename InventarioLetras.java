@@ -74,10 +74,10 @@ public class InventarioLetras {
 
     public void set(char letra, int valor) {
 
-        letra = Character.toLowercase(letra);
+        letra = Character.toLowerCase(letra);
 
         if (!Character.isLetter(letra) || letra < 'a' || letra > 'z' || valor < 0) {
-            throw new illegalArgumentException(); // Validamos que sea una letra correcta y que el numero no sea negativo
+            throw new IllegalArgumentException(); // Validamos que sea una letra correcta y que el numero no sea negativo
         }
 
         int posicion = letra - 'a';
