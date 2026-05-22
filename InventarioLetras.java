@@ -209,7 +209,7 @@ public class InventarioLetras {
 
     public InventarioLetras subtract(InventarioLetras otro) {
 
-        InventarioLetras Resultados = new InventarioLetras("");
+        InventarioLetras resultados = new InventarioLetras("");
 
         for (int i = 0; i < contador.length; i++) {
 
