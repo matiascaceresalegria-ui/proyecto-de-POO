@@ -128,7 +128,7 @@ public class InventarioLetras {
         int posicion = letra - 'a'; 
         posicion = (posicion + 3) % 26; // Movemos la letra 3 posiciones hacia adelante en el alfabeto 
 
-        return (char) (posicion) + 'a'; 
+        return (char) (posicion + 'a'); 
     }
 
     public char desencriptarCesar(char letra) {
