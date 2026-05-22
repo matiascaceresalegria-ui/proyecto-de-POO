@@ -135,7 +135,7 @@ public class InventarioLetras {
 
         letra = Character.toLowerCase(letra); 
 
-        if (letra < 'a' || letra > 'z'); {
+        if (letra < 'a' || letra > 'z') {
             return letra; // Si no es una letra valida, no le hacemos nada 
         }
 
