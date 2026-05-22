@@ -99,7 +99,7 @@ public class InventarioLetras {
 
     public String toString() {
 
-        String texto = "["
+        String texto = "[";
 
         for (int i = 0; i < contador.length; i++) {
 
