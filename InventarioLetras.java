@@ -139,7 +139,7 @@ public class InventarioLetras {
             return letra; // Si no es una letra valida, no le hacemos nada 
         }
 
-        int posicion = letra - 'a'); 
+        int posicion = letra - 'a'; 
         posicion = (posicion - 3 + 26) % 26; // Movemos la letra 3 posiciones atras de forma segura
 
         return (char) (posicion + 'a');
@@ -219,15 +219,15 @@ public class InventarioLetras {
                 return null; // Si da un numero negativo, significa que no se puede restar y devuelve null
             }
 
-            resultado.contador[i] = resta;
-            resultado.cantidadTotal += resta;
+            resultados.contador[i] = resta;
+            resultados.cantidadTotal += resta;
 
             if (resta > 0) {
-                resultado.letrasDistintas++;
+                resultados.letrasDistintas++;
             }
         }
 
-        return resultado; // Devolvemos el nuevo inventario con la resta hecha
+        return resultados; // Devolvemos el nuevo inventario con la resta hecha
     }
 }
         
